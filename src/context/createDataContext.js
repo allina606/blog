@@ -1,6 +1,6 @@
 // by convention, when we export plain function from this file
 // we make the filename lower case
-// this file automates context creation for different users 
+// this file automates context creation for different resources
 import React, { useReducer } from 'react'
 
 export default (reducer, actions, initialState) => {
