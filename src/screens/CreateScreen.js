@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet } from 'react-native'
+import BlogPostForm from '../components/BlogPostForm'
 import { Context as BlogContext} from '../context/BlogContext'
 
 const CreateScreen = ({ navigation }) => {
@@ -8,44 +9,22 @@ const CreateScreen = ({ navigation }) => {
     const { addBlogPost } = useContext(BlogContext)
 
     return <View>
-        <Text style={styles.label}>Enter title: </Text>
-        <TextInput
-            value={title}
-            onChangeText={(text) => setTitle(text)}
-            style={styles.input}
-        />
-        <Text style={styles.label}>Enter Content: </Text>
-        <TextInput
-            value={content}
-            onChangeText={(text) => setContent(text)} 
-            style={styles.input}       
-        />
-        <Button 
-            title="Add Blog Post"
-            onPress={() => {
+        <BlogPostForm
+            submit={ () => {
                 // add callback for navigation to go back to home screen after add_func is done (possibly may take long if API), so no errors
                 addBlogPost(title, content, () => {
                     navigation.navigate('Index')
                 })
             }}
+            title={title}
+            content={content}
+            onChangeTitle={ text => setTitle(text) }
+            onChangeContent={ text => setContent(text) }
         />
     </View>
 }
 
 const styles = StyleSheet.create({
-    input: {
-        fontSize: 18,
-        borderWidth: 1,
-        borderColor: 'black',
-        marginBottom: 15,
-        padding: 5,
-        margin: 5
-    }, 
-    label: {
-        fontSize: 20,
-        marginBottom: 5,
-        marginLeft: 5
-    }
 })
 
 export default CreateScreen
