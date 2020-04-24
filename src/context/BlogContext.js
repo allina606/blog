@@ -34,4 +34,4 @@ const blogReducer = ( state, action ) => {
     }
 }
 
-export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [])
+export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [{ title: 'TEST POST', content: 'TEST CONTENT', id: 1 }])
