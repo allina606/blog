@@ -7,7 +7,7 @@ const IndexScreen = ({ navigation }) => {
     const { state, addBlogPost, deleteBlogPost } = useContext(BlogContext)
 
     return <View>
-        <Button title="Add Post" onPress={() => navigation.navigate('Create')} />
+        <Button title="Add Post" onPress={addBlogPost} />
         <FlatList
             data={state}
             keyExtractor={(blogPost) => blogPost.title}
@@ -23,6 +23,17 @@ const IndexScreen = ({ navigation }) => {
             }}
         />
     </View>
+}
+
+// customize what's shown in navigation header
+// when stack navigator builds screen, looks at this function first to build out
+IndexScreen.navigationOptions = ({ navigation }) => {
+    return {
+        headerRight:
+            <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+                <Feather name='plus' size={30} />
+            </TouchableOpacity>
+    }
 }
 
 const styles = StyleSheet.create({
