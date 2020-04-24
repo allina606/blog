@@ -5,7 +5,6 @@ import { Context as BlogContext} from '../context/BlogContext'
 const CreateScreen = ({ navigation }) => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-
     const { addBlogPost } = useContext(BlogContext)
 
     return <View>
@@ -23,7 +22,12 @@ const CreateScreen = ({ navigation }) => {
         />
         <Button 
             title="Add Blog Post"
-            onPress={() => addBlogPost(title, content)}
+            onPress={() => {
+                // add callback for navigation to go back to home screen after add_func is done (possibly may take long if API), so no errors
+                addBlogPost(title, content, () => {
+                    navigation.navigate('Index')
+                })
+            }}
         />
     </View>
 }
