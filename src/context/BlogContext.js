@@ -3,13 +3,20 @@ import createDataContext from './createDataContext'
 const addBlogPost = dispatch => {
     return (title, content, callback) => {
         dispatch({ type: 'add_blogpost', payload: {title, content} })
-        callback()
+        if (callback) callback()
     }
 }
 
 const deleteBlogPost = dispatch => {
     return (id) => {
         dispatch({ type: 'delete_blogpost', payload: id })
+    }
+}
+
+const editBlogPost = dispatch => {
+    return (id, title, content, callback) => {
+        dispatch({ type: 'edit_blogpost', payload: {title, content, id} })
+        if (callback) callback()
     }
 }
 
@@ -29,9 +36,17 @@ const blogReducer = ( state, action ) => {
         case 'delete_blogpost':
             // returns state datatype where all values == true to given condition, hence deleting current id from state
             return state.filter((blogPost) => blogPost.id !== action.payload)
+        case 'edit_blogpost':
+            return state.map( blogPost => {
+                return blogPost.id === action.payload.id ? action.payload : blogPost 
+            })              
         default:
             return state;
     }
 }
 
-export const { Context, Provider } = createDataContext(blogReducer, { addBlogPost, deleteBlogPost }, [{ title: 'TEST POST', content: 'TEST CONTENT', id: 1 }])
+export const { Context, Provider } = createDataContext(
+    blogReducer, 
+    { addBlogPost, deleteBlogPost, editBlogPost },
+    [{ title: 'TEST POST', content: 'TEST CONTENT', id: 1 }]
+)
