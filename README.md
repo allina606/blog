@@ -13,6 +13,7 @@ learn  react-native mobile dev
 * trade-offs between props and context
 
 ## How to run on your machine
+`yarn install`\
 `yarn start`\
 this will start the react-native app up
 
