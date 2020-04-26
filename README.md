@@ -13,19 +13,18 @@ learn  react-native mobile dev
 * trade-offs between props and context
 
 ## How to run on your machine
-`cd blog`
-`yarn start`
+`yarn start`\
 this will start the react-native app up
 
-open another terminal and run
-`cd ../jsonserver`
-`yarn run db`
+open another terminal, and run
+`cd jsonserver`\
+`yarn run db`\
 this will start the jsonserver up
 
-open another terminal and run 
-`yarn run tunnel`
-this will start ngrok up. Under the online column you will
-see an ngrok.io URL. Copy and paste this URL into the baseURL shown in the file '/blog/src/api/jsonServer.js' 
+open another terminal, navigate to blog/jsonserver and run 
+`cd jsonserver`\
+`yarn run tunnel`\
+this will start ngrok up. In your terminal, under the online column you will see an ngrok.io URL. Copy and paste this URL into the baseURL value shown in the file '/blog/src/api/jsonServer.js' 
 
 You should have 3 terminals open in the end. Enjoy! 
 
