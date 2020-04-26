@@ -10,8 +10,16 @@ const IndexScreen = ({ navigation }) => {
         getBlogPosts();
 
         // whenever we're "focused" on index.js screen, function gets called
-        navigation.addListener('didFocus'), () => {
+        // listeners unassigned to a variable would be a "dangling listener", which can lead to a memory leak if we never travel to index.js screen again
+        //  clean up after ourselves by returning function, useEffect hook returns if index.js screen completely removed from heirarchy
+       
+    //    how is this listening if useEffect only runs once w out value in the second parameter array? 
+        const listener = navigation.addListener('didFocus', () => {
+            getBlogPosts()
+        })
 
+        return () => {
+            listener.remove()
         }
     }, [])
 
