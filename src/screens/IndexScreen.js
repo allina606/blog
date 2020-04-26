@@ -8,6 +8,11 @@ const IndexScreen = ({ navigation }) => {
 
     useEffect(() => {
         getBlogPosts();
+
+        // whenever we're "focused" on index.js screen, function gets called
+        navigation.addListener('didFocus'), () => {
+
+        }
     }, [])
 
     return <View>
