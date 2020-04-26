@@ -5,7 +5,7 @@ learn  react-native mobile dev
 
 ### Accomplished: 
 * used JSON server and ngrok to make axios network requests
-* Global state management using context for blogposts, automating conext creation for different resources, avoid coupling (rebuilding feature of redux for learning purposes)
+* Global state management using context for blogposts, automating conext creation for different resources, avoid tight coupling (rebuilding feature of redux for learning purposes)
 * stack navigation, navigation backtracking automation, utilizing .navigationOptions()
 * vector-icons from expo-cli
 * TouchableOpacity, FlatList, Button, Image, Text, View, StyleSheet, TextInput primitive elements
