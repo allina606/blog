@@ -17,12 +17,12 @@ learn  react-native mobile dev
 `yarn start`\
 this will start the react-native app up
 
-open another terminal, and run
+open another terminal, and run\
 `cd jsonserver`\
 `yarn run db`\
 this will start the jsonserver up
 
-open another terminal, navigate to blog/jsonserver and run 
+open another terminal, navigate to blog/jsonserver and run\
 `cd jsonserver`\
 `yarn run tunnel`\
 this will start ngrok up. In your terminal, under the online column you will see an ngrok.io URL. Copy and paste this URL into the baseURL value shown in the file '/blog/src/api/jsonServer.js' 
